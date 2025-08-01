@@ -349,7 +349,8 @@ class ExpNormalSmearing(nn.Module):
         self.num_rbf = num_rbf
         self.trainable = trainable
         self.dtype = dtype
-        self.cutoff_fn = CosineCutoff(0, cutoff_upper)
+        #self.cutoff_fn = CosineCutoff(0, cutoff_upper)
+        self.cutoff_fn = CosineCutoff(cutoff_lower, cutoff_upper)
         self.alpha = 5.0 / (cutoff_upper - cutoff_lower)
 
         means, betas = self._initial_params()
